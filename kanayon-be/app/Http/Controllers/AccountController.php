@@ -15,7 +15,7 @@ class AccountController extends Controller
     public function index()
     {
         $accounts = Account::all();
-        return response()->json($students);
+        return response()->json($accounts);
     }
 
     /**
@@ -36,21 +36,32 @@ class AccountController extends Controller
      */
     public function store(Request $request)
     {
-        $account = new Account;
+        $accounts = Account::where('isEmail', $request->isEmail)->get();
 
-        $account->isFirst = $request->isFirst;
-        $account->isLast = $request->isLast;
-        $account->isEmail = $request->isEmail;
-        $account->isPassword = $request->isPassword;
-        $account->isGcash = $request->isGcash;
+        if(count($accounts)<=0){
+            $account = new Account;
 
-        $account->save();
-
-        $message =(object)[
-            "prompt"=>"1",
-            "message"=>"You successfully created new account"
-        ];
-        return response()->json($message);
+            $account->isFirst = $request->isFirst;
+            $account->isLast = $request->isLast;
+            $account->isEmail = $request->isEmail;
+            $account->isPassword = $request->isPassword;
+            $account->isGcash = $request->isGcash;
+    
+            $account->save();
+    
+            $message =(object)[
+                "prompt"=>"1",
+                "message"=>"You successfully created a new account!"
+            ];
+            return response()->json($message);
+        }else{
+            $message =(object)[
+                "status"=>"0",
+                "message"=>"Email already exists! Please create a unique one!"
+            ];
+            return response()->json($message);
+        }
+       
 
     }
 
