@@ -56,7 +56,7 @@ class MenuController extends Controller
         }else{
             $message =(object)[
                 "status"=>"0",
-                "message"=>"Menu already exist! Remove or add stock if possible"
+                "message"=>"Menu already exists! Remove or add stock if possible"
             ];
             return response()->json($message);
         }

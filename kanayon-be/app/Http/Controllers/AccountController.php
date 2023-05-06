@@ -57,7 +57,7 @@ class AccountController extends Controller
         }else{
             $message =(object)[
                 "status"=>"0",
-                "message"=>"Email already exists! Please create a unique one!"
+                "message"=>"Email already taken! Please create a unique one!"
             ];
             return response()->json($message);
         }
