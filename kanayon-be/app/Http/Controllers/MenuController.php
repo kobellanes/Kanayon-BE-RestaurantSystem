@@ -93,7 +93,20 @@ class MenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $menu = Menu::where('id',$id)->first();
+
+        //$menu->menu_pic = $request->menu_pic;
+        $menu->menu_name = $request->menu_name;
+        $menu->menu_price = $request->menu_price;
+        $menu->menu_quantity = $request->menu_quantity;
+
+        $menu->save();
+
+        $message =(object)[
+            "status"=>"1",
+            "message"=>"You successfully updated menu information."
+        ];
+        return response()->json($message);
     }
 
     /**
