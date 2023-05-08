@@ -56,7 +56,7 @@ class MenuController extends Controller
         }else{
             $message =(object)[
                 "status"=>"0",
-                "message"=>"Menu already exists! Remove or add stock if possible"
+                "message"=>"Menu already exists! Remove, add or delete the menu if possible!"
             ];
             return response()->json($message);
         }
@@ -103,7 +103,7 @@ class MenuController extends Controller
 
         $message =(object)[
             "status"=>"1",
-            "message"=>"You successfully updated a menu"
+            "message"=>"You successfully updated a menu."
         ];
         return response()->json($message);
     }
@@ -120,7 +120,7 @@ class MenuController extends Controller
         $menu->delete();
         $message =(object)[
             "status"=>"1",
-            "message"=>"You successfully deleted a menu"
+            "message"=>"You successfully deleted a menu."
         ];
         return response()->json($message);
     }
