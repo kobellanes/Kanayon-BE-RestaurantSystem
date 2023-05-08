@@ -95,7 +95,6 @@ class MenuController extends Controller
     {
         $menu = Menu::where('id',$id)->first();
 
-        //$menu->menu_pic = $request->menu_pic;
         $menu->menu_name = $request->menu_name;
         $menu->menu_price = $request->menu_price;
         $menu->menu_quantity = $request->menu_quantity;
@@ -104,7 +103,7 @@ class MenuController extends Controller
 
         $message =(object)[
             "status"=>"1",
-            "message"=>"You successfully updated menu information."
+            "message"=>"You successfully updated a menu"
         ];
         return response()->json($message);
     }
@@ -117,6 +116,12 @@ class MenuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $menu = Menu::where('id',$id)->first();
+        $menu->delete();
+        $message =(object)[
+            "status"=>"1",
+            "message"=>"You successfully deleted a menu"
+        ];
+        return response()->json($message);
     }
 }
