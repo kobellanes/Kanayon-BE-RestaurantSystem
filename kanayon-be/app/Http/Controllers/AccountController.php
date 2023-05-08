@@ -46,6 +46,7 @@ class AccountController extends Controller
             $account->isEmail = $request->isEmail;
             $account->isPassword = $request->isPassword;
             $account->isGcash = $request->isGcash;
+            $account->isAddress= $request->isAddress;
     
             $account->save();
     
