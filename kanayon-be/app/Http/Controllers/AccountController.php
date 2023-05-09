@@ -97,7 +97,17 @@ class AccountController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $account = Account::where('id',$id)->first();
+
+        $account->isStatus = $request->isStatus;
+
+        $account->save();
+
+        $message =(object)[
+            "status"=>"1",
+            "message"=>"You successfully banned a user."
+        ];
+        return response()->json($message);
     }
 
     /**
@@ -108,6 +118,12 @@ class AccountController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $account = Account::where('id',$id)->first();
+        $account->delete();
+        $message =(object)[
+            "status"=>"1",
+            "message"=>"You successfully deleted a user account."
+        ];
+        return response()->json($message);
     }
 }

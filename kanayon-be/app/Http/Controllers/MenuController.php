@@ -42,6 +42,7 @@ class MenuController extends Controller
             $menu = new Menu;
 
             $menu->menu_pic = $request->menu_pic;
+            $menu->menu_description = $request->menu_description;
             $menu->menu_name = $request->menu_name;
             $menu->menu_price = $request->menu_price;
             $menu->menu_quantity = $request->menu_quantity;
@@ -96,6 +97,7 @@ class MenuController extends Controller
         $menu = Menu::where('id',$id)->first();
 
         $menu->menu_name = $request->menu_name;
+        $menu->menu_description = $request->menu_description;
         $menu->menu_price = $request->menu_price;
         $menu->menu_quantity = $request->menu_quantity;
 
