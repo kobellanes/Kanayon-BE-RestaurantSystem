@@ -100,6 +100,7 @@ class MenuController extends Controller
         $menu->menu_description = $request->menu_description;
         $menu->menu_price = $request->menu_price;
         $menu->menu_quantity = $request->menu_quantity;
+        $menu->menu_isSold = $request->menu_isSold;
 
         $menu->save();
 
