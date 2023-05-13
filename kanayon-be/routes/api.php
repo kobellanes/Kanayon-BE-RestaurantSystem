@@ -20,4 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('accounts','App\Http\Controllers\AccountController')->except(['create','edit']);
 Route::resource('menus','App\Http\Controllers\MenuController')->except(['create','edit']);
+Route::resource('orders','App\Http\Controllers\OrderController')->except(['create','edit']);
 
