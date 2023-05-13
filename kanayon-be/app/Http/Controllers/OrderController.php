@@ -45,8 +45,7 @@ class OrderController extends Controller
         $order->user_isGcash = $request->user_isGcash;
         $order->order_isList = $request->order_isList;
         $order->order_isPrice = $request->order_isPrice;
-        // $order->order_isMethod = $request->order_isMethod;
-        $order->order_isStatus = $request->order_isStatus;
+        $order->order_isMethod = $request->order_isMethod;
         $order->save();
 
         $message =(object)[
