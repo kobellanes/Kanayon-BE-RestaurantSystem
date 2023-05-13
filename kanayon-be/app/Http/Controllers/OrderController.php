@@ -38,14 +38,14 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $order = new Order;
-        
+
         $order->user_isName = $request->user_isName;
         $order->user_isAddress = $request->user_isAddress;
         $order->user_isEmail = $request->user_isEmail;
         $order->user_isGcash = $request->user_isGcash;
         $order->order_isList = $request->order_isList;
         $order->order_isPrice = $request->order_isPrice;
-        $order->order_isMethod = $request->order_isMethod;
+        // $order->order_isMethod = $request->order_isMethod;
         $order->order_isStatus = $request->order_isStatus;
         $order->save();
 
