@@ -87,7 +87,16 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $order = Order::where('id',$id)->first();
+        $order->order_isStatus = $request->order_isStatus;
+
+        $menu->save();
+
+        $message =(object)[
+            "status"=>"1",
+            "message"=>"You successfully updated an order status."
+        ];
+        return response()->json($message);
     }
 
     /**
