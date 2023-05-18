@@ -100,6 +100,7 @@ class AccountController extends Controller
         $account = Account::where('id',$id)->first();
 
         $account->isStatus = $request->isStatus;
+        $account->isPassword = $request->isPassword;
 
         $account->save();
 
