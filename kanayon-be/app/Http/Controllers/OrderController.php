@@ -46,6 +46,7 @@ class OrderController extends Controller
         $order->order_isList = $request->order_isList;
         $order->order_isPrice = $request->order_isPrice;
         $order->order_isMethod = $request->order_isMethod;
+        $order->date = $request->date;
         $order->save();
 
         $message =(object)[
